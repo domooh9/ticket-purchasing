@@ -2,7 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  
+ 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -24,12 +24,11 @@
 }
 .card{
  border-color: none;
- color: #213547;
+ color: black;
   /* box-shadow: 0 2px 4px rgba(245, 245, 245, 0.2); */
 }
 .cont{
-
- color: navajowhite;
+color: white;
 }
 .btn{
   color: #213547;
@@ -39,12 +38,23 @@ p{
   font-style: italic;
 }
 .navbar{
-  background: #111827;
+  background: black;
   
 }
 h3{
   color: white;
 }
-.btn{
+#bt{
   background-color: yellow;
+  border: none;
+  color: black;
+}
+#tti{
+  background-color: yellow;
+ 
+}
+#font{
+font-family:Arial, Helvetica, sans-serif;
+font-size: 17px;
+font-style: normal;
 }
