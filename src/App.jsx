@@ -17,6 +17,10 @@ const App = () => {
             <h3>
               Shop live events and discover can't-miss concerts, music, comedy
               and more.
+              <p style={{ fontSize: "18px", fontWeight: "normal" }}>
+                {" "}
+                All the tickets have the same billing structure.
+              </p>
             </h3>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

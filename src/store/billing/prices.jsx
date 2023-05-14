@@ -1,54 +1,30 @@
-export const Art = {
-  VVIP: {
-    price: 1100,
-    quantity: 2,
-  },
-  VIP: {
-    price: 600,
-    quantity: 5,
-  },
-  Regular: {
-    price: 300,
-    quantity: 10,
-  },
-  Others: {
-    price: 250,
-    quantity: 3,
-  },
+import React, { useState } from "react";
+
+const Payment = ({ quantity, price, ticketType }) => {
+  const totalAmount = quantity * price;
+
+  const [showPayment, setShowPayment] = useState(false);
+
+  const handlePayment = () => {
+    setShowPayment(true);
+  };
+
+  return (
+    <div>
+      <h4>Payment Details</h4>
+      <p>Type: {ticketType} </p>
+      <p>Quantity: {quantity}</p>
+      <p>Price per ticket: ${price}</p>
+
+      {!showPayment ? (
+        <button className="btn btn-primary" onClick={handlePayment}>
+          Proceed to Payment
+        </button>
+      ) : (
+        <p>Total amount to be paid: ${totalAmount}</p>
+      )}
+    </div>
+  );
 };
-export const Music = {
-  VVIP: {
-    price: 1000,
-    quantity: 2,
-  },
-  VIP: {
-    price: 500,
-    quantity: 5,
-  },
-  Regular: {
-    price: 400,
-    quantity: 10,
-  },
-  Others: {
-    price: 300,
-    quantity: 3,
-  },
-};
-export const comedy = {
-  VVIP: {
-    price: 900,
-    quantity: 2,
-  },
-  VIP: {
-    price: 400,
-    quantity: 5,
-  },
-  Regular: {
-    price: 300,
-    quantity: 10,
-  },
-  Others: {
-    price: 200,
-    quantity: 3,
-  },
-};
+
+export default Payment;

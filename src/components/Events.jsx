@@ -15,10 +15,15 @@ function Events() {
               <div className="card">
                 <img src={e.image} className="card-img-top" alt={e.name} />
                 <div className="card-body">
-                  <h5 className="card-title text-xl font-bold mb-2">
+                  <h5 id="name" className="card-title text-xl font-bold mb-2">
                     {e.name}
                   </h5>
-                  <p className="card-text text-gray-600">{e.description}</p>
+                  <p id="pp" className="card-text text-gray-600">
+                    {e.description}
+                  </p>
+                  <p>Venue:{e.venue}</p>
+                  <p>Date:{e.date}</p>
+                  <p>Time:{e.time}</p>
                   <Link
                     to={e.ticketsPage}
                     className="btn btn-primary mt-4"
@@ -39,10 +44,15 @@ function Events() {
               <div className="card">
                 <img src={e.image} className="card-img-top" alt={e.name} />
                 <div className="card-body">
-                  <h5 className="card-title text-xl font-bold mb-2">
+                  <h5 id="name" className="card-title text-xl font-bold mb-2">
                     {e.name}
                   </h5>
-                  <p className="card-text text-gray-600">{e.description}</p>
+                  <p id="pp" className="card-text text-gray-600">
+                    {e.description}
+                  </p>
+                  <p>Venue: {e.venue}</p>
+                  <p>Date: {e.date}</p>
+                  <p>Time: {e.time}</p>
                   <Link
                     to={e.ticketsPage}
                     className="btn btn-primary mt-4"
@@ -61,11 +71,15 @@ function Events() {
               <div className="card">
                 <img src={e.image} className="card-img-top" alt={e.name} />
                 <div className="card-body">
-                  <h5 className="card-title text-xl font-bold mb-2">
+                  <h5 id="name" className="card-title text-xl font-bold mb-2">
                     {e.name}
                   </h5>
-                  <p className="card-text text-gray-600">{e.description}</p>
-
+                  <p id="pp" className="card-text text-gray-600">
+                    {e.description}
+                  </p>
+                  <p>Venue:{e.venue}</p>
+                  <p>Date:{e.date}</p>
+                  <p>Time:{e.time}</p>
                   <Link
                     to={e.ticketsPage}
                     className="btn btn-primary mt-4"
