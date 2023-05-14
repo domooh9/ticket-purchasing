@@ -1,30 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, ListGroup } from "react-bootstrap";
-import Payment from "./prices";
+import { Link } from "react-router-dom";
 
-function TicketList() {
-  const tickets = [
-    { type: "VVIP", price: 300 },
-    { type: "VIP", price: 250 },
-    { type: "Regular", price: 180 },
-    { type: "Economy", price: 100 },
-  ];
-
-  const [quantities, setQuantities] = useState({});
-  const [selectedTicketType, setSelectedTicketType] = useState("");
-
-  const handleQuantityChange = (type, e) => {
-    const value = parseInt(e.target.value);
-    setQuantities((prevState) => ({ ...prevState, [type]: value }));
-    setSelectedTicketType(type);
-  };
-
-  const handlePaymentPrompt = (type) => {
-    setSelectedTicketType(type);
-  };
-
+function TicketList({
+  tickets,
+  quantities,
+  handleQuantityChange,
+  handlePaymentPrompt,
+}) {
   return (
-    <div>
+    <div className="div">
       <h4>Ticket List</h4>
       <Card>
         <ListGroup variant="flush">
@@ -34,7 +19,7 @@ function TicketList() {
               className="d-flex justify-content-between align-items-center">
               <div>
                 <h5>{ticket.type}</h5>
-                <p>Price: ${ticket.price}</p>
+                <p className="ticket-price">Price: ${ticket.price}</p>
               </div>
 
               <div>
@@ -46,28 +31,18 @@ function TicketList() {
                   value={quantities[ticket.type] || 1}
                   onChange={(e) => handleQuantityChange(ticket.type, e)}
                 />
-                <button
+                <Link
                   className="btn btn-primary mt-4"
+                  to="/payment"
                   onClick={() => handlePaymentPrompt(ticket.type)}
                   disabled={!quantities[ticket.type]}>
                   Book
-                </button>
+                </Link>
               </div>
             </ListGroup.Item>
           ))}
         </ListGroup>
       </Card>
-
-      {selectedTicketType && (
-        <Payment
-          key={selectedTicketType}
-          ticketType={selectedTicketType}
-          quantity={quantities[selectedTicketType]}
-          price={
-            tickets.find((ticket) => ticket.type === selectedTicketType).price
-          }
-        />
-      )}
     </div>
   );
 }
