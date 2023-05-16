@@ -1,45 +1,64 @@
-import React from "react";
-import { Form, Button } from 'react-bootstrap';
+// import React from "react";
 
-function BillingForm() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission and PayPal integration
-  };
+// import { PaystackConsumer } from "react-paystack";
 
-  return (
-    <div>
-      <h4>Billing Form</h4>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="name">
-          <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter your name" required />
-        </Form.Group>
+// const config = {
+//   reference: new Date().getTime().toString(),
+//   email: "user@example.com",
+// amount: 20000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+//   publicKey: "pk_test_eac1a77f9abb85371b714756626d9f4faad3fa74",
+// };
 
-        <Form.Group controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="Enter your email" required />
-        </Form.Group>
+// you can call this function anything
+// const handleSuccess = (reference) => {
+// Implementation for whatever you want to do with reference and after success call.
+//   console.log(reference);
+// };
 
-        <Form.Group controlId="address">
-          <Form.Label>Address</Form.Label>
-          <Form.Control type="text" placeholder="Enter your address" required />
-        </Form.Group>
+// you can call this function anything
+// const handleClose = () => {
+// implementation for  whatever you want to do when the Paystack dialog closed.
+//   console.log("closed");
+// };
+// function BillingForm() {
+// const componentProps = {
+//   ...config,
+//   text: "Paystack Button Implementation",
+//   onSuccess: (reference) => handleSuccess(reference),
+//   onClose: handleClose,
+// };
+//   pay = (e, data) => {
+//     console.log(data);
 
-        <Form.Group controlId="city">
-          <Form.Label>City</Form.Label>
-          <Form.Control type="text" placeholder="Enter your city" required />
-        </Form.Group>
-
-        <Form.Group controlId="postalCode">
-          <Form.Label>Postal Code</Form.Label>
-          <Form.Control type="text" placeholder="Enter your postal code" required />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">Pay with PayPal</Button>
-      </Form>
+// };
+//   return (
+//     <div className="App">
+// <header className="App-header">
+{
+  /* <img src={logo} className="App-logo" alt="logo" /> */
+}
+{
+  /* <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer">
+          Learn React
+        </a>
+      </header>
+      <PaystackConsumer {...componentProps}>
+        {({ initializePayment }) => (
+          <button onClick={() => initializePayment(handleSuccess, handleClose)}>
+            Paystack Consumer Implementation
+          </button>
+        )}
+      </PaystackConsumer>
     </div>
   );
 }
 
-export default BillingForm;
+export default BillingForm; */
+}

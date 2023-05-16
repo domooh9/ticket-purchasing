@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
  
@@ -86,4 +86,40 @@ font-style: normal;
   .card {
     width: 100%;
   }
+}
+.quantity-input {
+  width: 50px;
+  margin-right: 20px;
+  
+}
+.card-footer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 180px;
+  align-items: center;
+  margin-top: 20px;
+  
+}
+#co{
+  margin-right: 80px;
+  
+}
+.reduced-space {
+  margin-bottom: 16px; 
+ 
+}
+#for{
+  background: whitesmoke;
+  width: 430px;
+position: relative;
+left: -160px;
+height: 180px;
+}
+#ft{
+  position: relative;
+  bottom: 350px;
+}
+#pay{
+  height: 15px;
 }
