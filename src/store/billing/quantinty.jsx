@@ -10,8 +10,10 @@ function TicketList({
 }) {
   return (
     <div className="div">
-      <h4 style={{ color: "white" }}>Ticket List</h4>
-      <Card>
+      <h4 id="dd" style={{ color: "white" }}>
+        Ticket List
+      </h4>
+      <Card id="dd">
         <ListGroup variant="flush">
           {tickets.map((ticket, index) => (
             <ListGroup.Item
@@ -23,18 +25,21 @@ function TicketList({
               </div>
 
               <div>
-                <label htmlFor={`quantity-${index}`}>Quantity:</label>
-                <input
-                  className="quantity-input"
-                  id={`quantity-${index}`}
-                  type="number"
-                  min="1"
-                  value={quantities[ticket.type] || 1}
-                  onChange={(e) => handleQuantityChange(ticket.type, e)}
-                />
+                <div id="br">
+                  <label htmlFor={`quantity-${index}`}>Quantity:</label>
+                  <input
+                    className="quantity-input"
+                    id={`quantity-${index}`}
+                    type="number"
+                    min="1"
+                    value={quantities[ticket.type] || 1}
+                    onChange={(e) => handleQuantityChange(ticket.type, e)}
+                  />
+                </div>
                 <Link
+                  style={{ position: "relative", left: "50px" }}
                   id="bt"
-                  className="btn btn-primary mt-4"
+                  className="btn mt-4"
                   to="/payment"
                   onClick={() => handlePaymentPrompt(ticket.type)}
                   disabled={!quantities[ticket.type]}>

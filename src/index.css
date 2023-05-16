@@ -90,7 +90,8 @@ font-style: normal;
 .quantity-input {
   width: 50px;
   margin-right: 20px;
-  
+  height: 20px;
+  border-radius: 10px;
 }
 .card-footer {
   display: flex;
@@ -137,4 +138,14 @@ height: 180px;
 }
 .all{
   font-size: 14px;
+}
+#dd{
+  width: 70%;
+ position: relative;
+ left: 200px;
+ top: 50px;
+}
+#br{
+font-family: 'Lucida Sans', 'Lucida Sans Regular';
+font-size: 15px;
 }

@@ -1,6 +1,8 @@
 This is a [React.js] project bootstrapped with [`vite-create-react-app`].
 
 ![Ticket Booking](/screenshot_00005.png)
+![Ticket Booking](/screen.png)
+![Ticket Booking](/kaz.png)
 
 ## Getting Started
 
