@@ -9,8 +9,8 @@ import Billingform from "./store/billing/billingform";
 const tick = ticket;
 
 function Routs() {
-  const [quantities, setQuantities] = useState({});
   const [selectedTicketType, setSelectedTicketType] = useState("");
+  const [quantities, setQuantities] = useState({});
 
   const handleQuantityChange = (type, e) => {
     const value = parseInt(e.target.value);
@@ -21,6 +21,10 @@ function Routs() {
   const handlePaymentPrompt = (type) => {
     setSelectedTicketType(type);
   };
+
+  if (!quantities[selectedTicketType]) {
+    setQuantities((prevState) => ({ ...prevState, [selectedTicketType]: 1 }));
+  }
 
   return (
     <div className="event">
@@ -57,7 +61,6 @@ function Routs() {
           path="/bill"
           element={
             <Billingform
-              ticketType={selectedTicketType}
               quantity={quantities[selectedTicketType]}
               price={
                 tick.find((ticket) => ticket.type === selectedTicketType)?.price

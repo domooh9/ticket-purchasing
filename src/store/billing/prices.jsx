@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import { VisaCreditCard as VisaCard } from "react-fancy-visa-card";
 import { image, tick } from "../../assets/image";
+import { Link } from "react-router-dom";
 
 const Payment = ({ quantity, price, ticketType }) => {
   const [showPayment, setShowPayment] = useState(false);
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [showVisaCard, setShowVisaCard] = useState(false);
+  const [transactionSuccessful, setTransactionSuccessful] = useState(false);
 
   const handleCheckboxChange = () => {
     setCheckboxChecked(!checkboxChecked);
@@ -17,16 +19,28 @@ const Payment = ({ quantity, price, ticketType }) => {
 
   const handlePayment = () => {
     if (checkboxChecked) {
-      // Do something here to proceed with payment
       setTimeout(() => {
-        window.location.href = "/bill";
+        setTransactionSuccessful(true);
       }, 2000);
     } else {
       alert("Please agree to the terms of use before proceeding with payment.");
     }
   };
   const pay = (e, data) => {
-    console.log(data);
+    const creditCardData = e.target;
+    const elements = Object.values(creditCardData.elements).filter(
+      (element) => element.tagName === "INPUT"
+    );
+    const isAllFilled = elements.every(
+      (element) => element.value && element.value.trim().length > 0
+    );
+    if (isAllFilled) {
+      console.log(data);
+      setTransactionSuccessful(true);
+      alert("Your payment has been successful! Proceed to place Order");
+    } else {
+      alert("Please fill in all the required fields.");
+    }
   };
 
   const handleCheckBoxChange = (event) => {
@@ -205,7 +219,10 @@ const Payment = ({ quantity, price, ticketType }) => {
               </label>
               <br></br>
               <a>
-                Servive Fees: {Service} * {quantity}
+                Servive Fees: $44.2 * {quantity}{" "}
+                <a style={{ position: "relative", left: " 200px" }}>
+                  ${Service}
+                </a>
               </a>
               <br></br>
               <a>
@@ -267,20 +284,23 @@ const Payment = ({ quantity, price, ticketType }) => {
               </a>
             </label>
           </p>
-
           <div id="footer" className="card-footer">
-            <button
-              id="bt"
-              className="btn btn-primary"
-              onClick={handlePayment}
-              disabled={!checkboxChecked}>
-              Proceed to Payment
-            </button>
+            {transactionSuccessful && (
+              <Link
+                to="/bill"
+                style={{ position: "relative", left: "100px" }}
+                id="bt"
+                className="btn btn-primary"
+                onClick={handlePayment}
+                disabled={!checkboxChecked}>
+                Place Order
+              </Link>
+            )}
             <a
               style={{
                 position: "relative",
                 top: "30px",
-                right: "170px",
+                right: "110px",
                 fontSize: "12px",
               }}>
               *Exceptions may apply see our terms of use
