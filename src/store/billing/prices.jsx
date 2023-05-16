@@ -4,7 +4,7 @@ import { VisaCreditCard as VisaCard } from "react-fancy-visa-card";
 import { image, tick } from "../../assets/image";
 import { Link } from "react-router-dom";
 
-const Payment = ({ quantity, price, ticketType }) => {
+const Payment = ({ quantity, price }) => {
   const [showPayment, setShowPayment] = useState(false);
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [showVisaCard, setShowVisaCard] = useState(false);

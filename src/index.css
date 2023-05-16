@@ -150,11 +150,17 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular';
 font-size: 15px;
 }
 #billl{
-  width: 40rem;
+  width: 30rem;
   display: flex;
-  height: 30rem;
+  height: 20rem;
   margin-left: auto;
   margin-right: auto;
   position: relative;
   bottom: -40px;
+  
+}
+.card-body{
+  font-weight: normal;
+  font-size: 20px;
+  margin: 10px;
 }

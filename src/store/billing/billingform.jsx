@@ -3,7 +3,7 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function Billingform({ quantity, price }) {
+function Billingform({ quantity, price, ticketType }) {
   const generateTicket = () => {
     const input = document.getElementById("ticket");
 
@@ -20,10 +20,29 @@ function Billingform({ quantity, price }) {
       <div className="card-body">
         <div id="ticket">
           <h2>Event Ticket</h2>
-          <p>Join us for an amazing event!</p>
-          <p>Quantity: {quantity}</p>
-          <p>Price: {price}</p>
-          {/* Add more elements as needed */}
+          <p>
+            <b>Ticket type: </b>
+            <a
+              style={{
+                position: "relative",
+                left: " 230px",
+                fontWeight: "normal",
+              }}>
+              {ticketType}
+            </a>
+          </p>
+          <p>
+            <b>Number of Tickets:</b>{" "}
+            <a
+              style={{
+                position: "relative",
+                left: " 200px",
+                fontWeight: "normal",
+              }}>
+              {quantity}
+            </a>
+          </p>
+          <p></p>
         </div>
         <button id="bt" className="btn btn-primary" onClick={generateTicket}>
           Download Ticket

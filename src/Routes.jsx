@@ -65,6 +65,7 @@ function Routs() {
               price={
                 tick.find((ticket) => ticket.type === selectedTicketType)?.price
               }
+              ticketType={selectedTicketType}
             />
           }
         />
