@@ -15,4 +15,8 @@ export const ticket = [
     type: "Economy",
     price: 100,
   },
+  {
+    type: "others",
+    price: 90,
+  },
 ];

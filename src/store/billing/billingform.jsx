@@ -1,64 +1,54 @@
-// import React from "react";
+import React from "react";
+import {
+  PDFDownloadLink,
+  Page,
+  Text,
+  Document,
+  StyleSheet,
+} from "@react-pdf/renderer";
 
-// import { PaystackConsumer } from "react-paystack";
+function Billingform() {
+  // Define your ticket styles
+  const styles = StyleSheet.create({
+    page: {
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "#fff",
+      padding: 30,
+    },
+    title: {
+      fontSize: 20,
+      marginBottom: 10,
+      textAlign: "center",
+    },
+    description: {
+      fontSize: 14,
+      marginBottom: 20,
+      textAlign: "center",
+    },
+  });
 
-// const config = {
-//   reference: new Date().getTime().toString(),
-//   email: "user@example.com",
-// amount: 20000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-//   publicKey: "pk_test_eac1a77f9abb85371b714756626d9f4faad3fa74",
-// };
-
-// you can call this function anything
-// const handleSuccess = (reference) => {
-// Implementation for whatever you want to do with reference and after success call.
-//   console.log(reference);
-// };
-
-// you can call this function anything
-// const handleClose = () => {
-// implementation for  whatever you want to do when the Paystack dialog closed.
-//   console.log("closed");
-// };
-// function BillingForm() {
-// const componentProps = {
-//   ...config,
-//   text: "Paystack Button Implementation",
-//   onSuccess: (reference) => handleSuccess(reference),
-//   onClose: handleClose,
-// };
-//   pay = (e, data) => {
-//     console.log(data);
-
-// };
-//   return (
-//     <div className="App">
-// <header className="App-header">
-{
-  /* <img src={logo} className="App-logo" alt="logo" /> */
-}
-{
-  /* <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-      <PaystackConsumer {...componentProps}>
-        {({ initializePayment }) => (
-          <button onClick={() => initializePayment(handleSuccess, handleClose)}>
-            Paystack Consumer Implementation
-          </button>
-        )}
-      </PaystackConsumer>
+  // Define the content of your ticket
+  const Ticket = () => (
+    <Document>
+      <Page size="A4" style={styles.page}>
+        <Text style={styles.title}>Event Ticket</Text>
+        <Text style={styles.description}>Join us for an amazing event!</Text>
+        {/* Add more elements as needed */}
+      </Page>
+    </Document>
+  );
+  return (
+    <div>
+      <h1>Generate Ticket</h1>
+      <PDFDownloadLink document={<Ticket />} fileName="event_ticket.pdf">
+        {({ blob, url, loading, error }) =>
+          loading ? "Loading document..." : "Download Ticket"
+        }
+      </PDFDownloadLink>
     </div>
   );
 }
 
-export default BillingForm; */
-}
+export default Billingform;

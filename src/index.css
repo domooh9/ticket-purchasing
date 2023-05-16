@@ -70,7 +70,7 @@ font-style: normal;
   justify-content: space-evenly;
   background: white;
   width: 70%;
-  height: inherit;
+  height: 750px;
   margin-left: 180px;
  padding-top: 40px;
  position: relative;
@@ -122,4 +122,19 @@ height: 180px;
 }
 #pay{
   height: 15px;
+}
+#lab{
+  margin: 20px;
+  position: relative;
+  left: 70px;
+  top: 50px;
+ 
+  font-size: 16px;
+}
+#footer{
+  background: yellow;
+  height:37px;
+}
+.all{
+  font-size: 14px;
 }

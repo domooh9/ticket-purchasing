@@ -1,5 +1,7 @@
 This is a [React.js] project bootstrapped with [`vite-create-react-app`].
 
+![Ticket Booking](/screenshot_00005.png)
+
 ## Getting Started
 
 Clone this repository in you local storage:

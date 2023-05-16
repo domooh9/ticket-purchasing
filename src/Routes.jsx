@@ -4,6 +4,7 @@ import Events from "./components/Events";
 import TicketList from "./store/billing/quantinty";
 import { ticket } from "./store/tickets";
 import Payment from "./store/billing/prices";
+import Billingform from "./store/billing/billingform";
 
 const tick = ticket;
 
@@ -50,6 +51,18 @@ function Routs() {
                 }
               />
             )
+          }
+        />
+        <Route
+          path="/bill"
+          element={
+            <Billingform
+              ticketType={selectedTicketType}
+              quantity={quantities[selectedTicketType]}
+              price={
+                tick.find((ticket) => ticket.type === selectedTicketType)?.price
+              }
+            />
           }
         />
       </Routes>
