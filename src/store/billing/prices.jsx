@@ -151,7 +151,9 @@ const Payment = ({ quantity, price }) => {
                           onChange={handleCheckboxChange}
                           checked={!showVisaCard && checkboxChecked}
                         />{" "}
-                        <a style={{ fontSize: "30px", color: "blue" }}>+</a>{" "}
+                        <span style={{ fontSize: "30px", color: "blue" }}>
+                          +
+                        </span>{" "}
                         <a style={{ color: "blue" }}>Add a New Card</a>
                       </label>
                       {showVisaCard && !checkboxChecked && (

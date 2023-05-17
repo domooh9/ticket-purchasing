@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Routs from "./Routes";
+import { logo } from "./assets/image";
 
 const App = () => {
   return (
@@ -9,7 +10,7 @@ const App = () => {
       <Navbar className="navbar" expand="lg">
         <Container>
           <img
-            src="../src/assets/logo.png"
+            src={logo}
             alt="Logo"
             style={{ width: "220px", height: "auto" }}
           />
