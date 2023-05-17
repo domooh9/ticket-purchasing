@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import PaymentForm from "./addcard";
+import PaymentForm from "./newcard";
 import { Card } from "react-bootstrap";
 import { VisaCreditCard as VisaCard } from "react-fancy-visa-card";
 import { image, tick } from "../../assets/image";
 import { Link } from "react-router-dom";
+import Newcard from "./newcard";
 
 const Payment = ({ quantity, price }) => {
   const [checkboxChecked, setCheckboxChecked] = useState(false);
@@ -158,14 +159,16 @@ const Payment = ({ quantity, price }) => {
                           onSubmit={pay}
                           frontCardColor="red"
                           backCardColor="black"
-                          submitBtnColor="black"
+                          submitBtnColor="yellow"
                           submitBtnTxt={totalAmount}
                           height="20px"
                         />
                       )}
                       {!showVisaCard && checkboxChecked && (
-                        <PaymentForm
+                        <Newcard
                           onSubmit={pay}
+                          submitBtnColor="yellow"
+                          submitColor="black"
                           submitBtnTxt={totalAmount}
                         />
                       )}
@@ -178,25 +181,7 @@ const Payment = ({ quantity, price }) => {
                       marginTop: "10px",
                       fontFamily: "monospace",
                       fontSize: "14px",
-                    }}>
-                    <a>
-                      Or Pay with<br></br>
-                    </a>
-                    <a>
-                      By using digital wallet and contiuning past this page, you
-                      have read and are accepting{" "}
-                      <a
-                        style={{
-                          fontStyle: "normal",
-                          marginLeft: "4px",
-                        }}
-                        href="https://www.example.com/terms-of-use"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        Terms of Use
-                      </a>
-                    </a>
-                  </div>
+                    }}></div>
                 </div>
               </Card.Body>
             </div>
@@ -214,8 +199,6 @@ const Payment = ({ quantity, price }) => {
               <label>
                 <b>Tickets</b>
               </label>
-              {/* {quantity && <p>Quantity: {quantity}</p>}{" "} */}
-              {/* <p>Price per ticket: ${price}</p> */}
               <p style={{ fontStyle: "normal" }}>
                 Resale Tickets: ${others} * 2{" "}
                 <a style={{ position: "relative", left: " 180px" }}>${deduc}</a>
