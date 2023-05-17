@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import PaymentForm from "./addcard";
 import { Card } from "react-bootstrap";
 import { VisaCreditCard as VisaCard } from "react-fancy-visa-card";
 import { image, tick } from "../../assets/image";
 import { Link } from "react-router-dom";
 
 const Payment = ({ quantity, price }) => {
-  const [showPayment, setShowPayment] = useState(false);
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [showVisaCard, setShowVisaCard] = useState(false);
   const [transactionSuccessful, setTransactionSuccessful] = useState(false);
@@ -16,17 +16,22 @@ const Payment = ({ quantity, price }) => {
 
   const totalAmount = quantity ? quantity * price : 0;
   const Service = 44.2 * quantity;
+  const deduct = totalAmount - Service + 2.95;
+  let deduc = deduct.toFixed(2);
+  const other = deduc / 2;
+  let others = other.toFixed(2);
 
   const handlePayment = () => {
     if (checkboxChecked) {
       setTimeout(() => {
         setTransactionSuccessful(true);
+        alert("Your ticket is ready for download");
       }, 2000);
-    } else {
-      alert("Please agree to the terms of use before proceeding with payment.");
     }
   };
+
   const pay = (e, data) => {
+    e.preventDefault();
     const creditCardData = e.target;
     const elements = Object.values(creditCardData.elements).filter(
       (element) => element.tagName === "INPUT"
@@ -37,14 +42,27 @@ const Payment = ({ quantity, price }) => {
     if (isAllFilled) {
       console.log(data);
       setTransactionSuccessful(true);
-      alert("Your payment has been successful! Proceed to place Order");
+      alert(
+        "Your payment has been successful! you can cancel the transaction before Proceeding to place Order, once you Place Order no refund will be accepted"
+      );
     } else {
       alert("Please fill in all the required fields.");
     }
   };
-
   const handleCheckBoxChange = (event) => {
-    setShowVisaCard(event.target.checked);
+    if (event.target.checked) {
+      setShowVisaCard(true);
+      setCheckboxChecked(false);
+    } else {
+      setShowVisaCard(false);
+    }
+  };
+
+  const cancelTransaction = () => {
+    setTransactionSuccessful(false);
+    alert(
+      "Your order has been cancelled, we will process your refund in two business days"
+    );
   };
 
   return (
@@ -129,11 +147,13 @@ const Payment = ({ quantity, price }) => {
                             height: "18px",
                           }}
                           type="checkbox"
+                          onChange={handleCheckboxChange}
+                          checked={!showVisaCard && checkboxChecked}
                         />{" "}
                         <a style={{ fontSize: "30px", color: "blue" }}>+</a>{" "}
                         <a style={{ color: "blue" }}>Add a New Card</a>
                       </label>
-                      {showVisaCard && (
+                      {showVisaCard && !checkboxChecked && (
                         <VisaCard
                           onSubmit={pay}
                           frontCardColor="red"
@@ -141,6 +161,12 @@ const Payment = ({ quantity, price }) => {
                           submitBtnColor="black"
                           submitBtnTxt={totalAmount}
                           height="20px"
+                        />
+                      )}
+                      {!showVisaCard && checkboxChecked && (
+                        <PaymentForm
+                          onSubmit={pay}
+                          submitBtnTxt={totalAmount}
                         />
                       )}
                     </div>
@@ -191,15 +217,13 @@ const Payment = ({ quantity, price }) => {
               {/* {quantity && <p>Quantity: {quantity}</p>}{" "} */}
               {/* <p>Price per ticket: ${price}</p> */}
               <p style={{ fontStyle: "normal" }}>
-                Resale Tickets: $44.2 * {quantity}{" "}
-                <a style={{ position: "relative", left: " 200px" }}>
-                  ${Service}
-                </a>
+                Resale Tickets: ${others} * 2{" "}
+                <a style={{ position: "relative", left: " 180px" }}>${deduc}</a>
               </p>
             </a>
             <a style={{ position: "relative", top: " 50px" }}>
               <label>
-                <b>Notes From Feller</b>
+                <b>Notes From Seller</b>
               </label>
               <br></br>
               <a>
@@ -242,7 +266,18 @@ const Payment = ({ quantity, price }) => {
               </a>
             </a>
             <br></br>
-            <a style={{ position: "relative", top: "140px" }}>Cancel Order</a>
+            <button
+              style={{
+                position: "relative",
+                top: "140px",
+                background: "white",
+                color: "blue",
+                border: "none",
+                fontSize: "15px",
+              }}
+              onClick={cancelTransaction}>
+              Cancel Order
+            </button>
             <p
               style={{
                 fontStyle: "normal",
@@ -259,8 +294,8 @@ const Payment = ({ quantity, price }) => {
               style={{ position: "relative", top: "180px" }}
               type="checkbox"
               name="termsCheckbox"
-              checked={checkboxChecked}
-              onChange={handleCheckboxChange}
+              // checked={checkboxChecked}
+              // onChange={handleCheckboxChange}
             />
             <label
               style={{

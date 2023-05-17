@@ -4,6 +4,7 @@ import jsPDF from "jspdf";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Billingform({ quantity, price, ticketType }) {
+  const totalAmount = quantity ? quantity * price : 0;
   const generateTicket = () => {
     const input = document.getElementById("ticket");
 
@@ -20,6 +21,17 @@ function Billingform({ quantity, price, ticketType }) {
       <div className="card-body">
         <div id="ticket">
           <h2>Event Ticket</h2>
+          <p>
+            <b>Total Amount Paid:</b>
+            <a
+              style={{
+                position: "relative",
+                left: " 190px",
+                fontWeight: "normal",
+              }}>
+              ${totalAmount}
+            </a>
+          </p>
           <p>
             <b>Ticket type: </b>
             <a

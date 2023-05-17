@@ -2,7 +2,7 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
- 
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #213547;
@@ -14,54 +14,52 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.event{
+.event {
   background: #213547;
 }
-#row{ 
+#row {
   border-bottom: 1px solid #ccc;
   padding-bottom: 20px;
-  margin-bottom: 20px;  
+  margin-bottom: 20px;
 }
-.card{
- border-color: none;
- color: black;
+.card {
+  border-color: none;
+  color: black;
   /* box-shadow: 0 2px 4px rgba(245, 245, 245, 0.2); */
 }
-.cont{
-color: white;
+.cont {
+  color: white;
 }
-.btn{
+.btn {
   color: #213547;
 }
-p{
+p {
   font-size: 14px;
   font-style: italic;
 }
-.navbar{
+.navbar {
   background: black;
-  
 }
-h3{
+h3 {
   color: white;
 }
-#bt{
+#bt {
   background-color: yellow;
   border: none;
   color: black;
 }
-#tti{
+#tti {
   background-color: yellow;
- 
 }
-#font{
-font-family:Arial, Helvetica, sans-serif;
-font-size: 17px;
-font-style: normal;
-}
-#pp{
+#font {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
   font-style: normal;
 }
-#name{
+#pp {
+  font-style: normal;
+}
+#name {
   color: #213547;
 }
 .card-container {
@@ -72,9 +70,9 @@ font-style: normal;
   width: 70%;
   height: 750px;
   margin-left: 180px;
- padding-top: 40px;
- position: relative;
- top: 20px;
+  padding-top: 40px;
+  position: relative;
+  top: 20px;
 }
 
 #ca {
@@ -100,56 +98,53 @@ font-style: normal;
   top: 180px;
   align-items: center;
   margin-top: 20px;
-  
 }
-#co{
+#co {
   margin-right: 80px;
-  
 }
 .reduced-space {
-  margin-bottom: 16px; 
- 
+  margin-bottom: 16px;
 }
-#for{
+#for {
   background: whitesmoke;
   width: 430px;
-position: relative;
-left: -160px;
-height: 180px;
+  position: relative;
+  left: -160px;
+  height: 180px;
 }
-#ft{
+#ft {
   position: relative;
   bottom: 350px;
 }
-#pay{
+#pay {
   height: 15px;
 }
-#lab{
+#lab {
   margin: 20px;
   position: relative;
   left: 70px;
   top: 50px;
- 
+
   font-size: 16px;
 }
-#footer{
+#footer {
   background: yellow;
-  height:37px;
+  height: 37px;
 }
-.all{
+.all {
   font-size: 14px;
 }
-#dd{
+#dd {
   width: 70%;
- position: relative;
- left: 200px;
- top: 50px;
+  position: relative;
+  left: 200px;
+  top: 50px;
 }
-#br{
-font-family: 'Lucida Sans', 'Lucida Sans Regular';
-font-size: 15px;
+#br {
+  font-family: "Lucida Sans", "Lucida Sans Regular";
+  font-size: 15px;
 }
-#billl{
+#billl {
   width: 30rem;
   display: flex;
   height: 20rem;
@@ -157,10 +152,19 @@ font-size: 15px;
   margin-right: auto;
   position: relative;
   bottom: -40px;
-  
 }
-.card-body{
+.card-body {
   font-weight: normal;
   font-size: 20px;
   margin: 10px;
+}
+#bil {
+  width: 26rem;
+  display: flex;
+  height: 24rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  bottom: -40px;
+  background: #213547;
 }

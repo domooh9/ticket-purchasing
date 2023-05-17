@@ -60,13 +60,16 @@ function Routs() {
         <Route
           path="/bill"
           element={
-            <Billingform
-              quantity={quantities[selectedTicketType]}
-              price={
-                tick.find((ticket) => ticket.type === selectedTicketType)?.price
-              }
-              ticketType={selectedTicketType}
-            />
+            selectedTicketType && (
+              <Billingform
+                quantity={quantities[selectedTicketType]}
+                price={
+                  tick.find((ticket) => ticket.type === selectedTicketType)
+                    ?.price
+                }
+                ticketType={selectedTicketType}
+              />
+            )
           }
         />
       </Routes>
